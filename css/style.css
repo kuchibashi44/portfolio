@@ -1,0 +1,1017 @@
+@charset "UTF-8";
+/* CSS Document */
+
+:root{
+	--black:#414a52;
+	--white:#f1f1f4;
+	--sky:#d1e1f4;
+	--navy:#162c4d;
+	--blue:#5588aa;
+	--brown:#370b00;
+}
+
+.kiwi-maru-regular {
+  font-family: "Kiwi Maru", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.zen-kurenaido-regular {
+  font-family: "Zen Kurenaido", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.zen-kaku-gothic-new-light {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+
+/*jquery 下からふわっと表示用*/
+.reveal { transition: opacity 1.5s cubic-bezier(.22,.61,.36,1), transform 1.5s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
+.reveal { opacity: 0; transform: translateY(100px); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/*jquery ふわっと表示用*/
+.reveal02 { transition: opacity .6s ease; will-change: opacity, filter; }
+.reveal-blur { transition: opacity .6s ease, filter .6s ease; }
+.reveal02 { opacity: 0; }
+.reveal02.is-visible { opacity: 1; }
+
+
+/** 共通項目
+******************************/
+html,body{
+	font-size: 100%;
+	font-family: dnp-shuei-gothic-gin-std, "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3",sans-serif;
+	background: var(--white);
+	color: var(--black);
+	scroll-behavior: smooth;
+}
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.yago {
+	font-family: "Kiwi Maru", serif;
+}
+
+p{
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+
+
+
+/** PC
+****************************************/
+
+.sp{
+	display: none;
+}
+
+/** header
+******************************/
+header{
+	display: flex;
+	width: 100%;
+	height: 17vh;
+	justify-content: space-between;
+	}
+
+/** タイトル **/
+.title_area{
+	font-family: "Kiwi Maru", serif;
+	width: 30%;
+	text-align:center; 
+	color: var(--blue);
+	font-size: 1.4rem;
+	letter-spacing: 1.5px;
+	line-height: 1.5;
+	margin:auto;
+}
+
+.title_area span {
+	display: block;
+}
+
+
+/** TOPナビゲーションエリア **/
+.top_nav{
+	display: flex;
+	width: 65%;
+	justify-content: right;
+	text-align: right;
+	align-items: center;
+	margin: auto 3% auto 12%;
+}
+
+.top_nav li{
+	font-size: 2rem;
+	font-weight:bold;
+	text-align: center;
+	align-items: center;
+	margin: auto;
+}
+
+.top_nav a{
+	position: relative;
+	z-index: 1;
+}
+
+/** 下線のアニメーション **/
+.nav_item{
+	position: relative;
+	margin: 30px 50px 0;
+	padding-top: 10px;
+	z-index: 1;
+}
+.nav_item:after{
+	background: var(--blue);
+	width: 0;
+	height: 2px;
+	position: absolute;
+	content: "";
+	display: block;
+	bottom: -3px;
+	left: 0;
+	z-index: -1;
+	transition: 0.3s;
+}
+.nav_item:hover:after{
+	width: 100%;
+	}
+
+
+/** ハンバーガーマーク **/
+.inner_line{
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 55px;
+	height: 7px;
+	background: var(--black);
+	transition: 0.3s;
+	z-index: 7;
+}
+#line1{
+	top: 0;
+}
+#line2{
+	top: 50%;
+	transform: translateY(-50%)
+}
+#line3{
+	bottom: 0;
+}
+
+/* ハンバーガー[ × ] */
+.line_1{
+	margin-top: 80%;
+	transform: rotate(-45deg);
+	background: var(--white);
+}
+.line_2{
+	opacity: 0;
+}
+.line_3{
+	margin-bottom: 80%;
+	transform: rotate(45deg);
+	background: var(--white);
+}
+
+/** ハンバーガーメニュー **/
+nav{
+	position: fixed;
+	top: 0;
+	right: -30%;
+	width: 30%;
+	height: 100vh;
+	background: var(--black);
+	color: var(--white);
+	transition: 0.5s;
+	z-index: 4;
+}
+nav ul{
+	padding-top: 100px;
+	text-align: center;
+	margin: 0 10%;
+}
+nav a{
+	display: block;
+	font-size: 33px;
+	color: var(--white);
+	margin: 15px;
+	padding: 10px;
+	transition: 0.3s;
+	line-height: 2;
+}
+.in{
+	transform: translateX(-100%);
+}
+
+
+/** スクロールしたらハンバーガーメニュー表示 **/
+#hamburger {
+	display: none;
+	position: fixed;
+	top: 40px;
+	right: 80px;
+	width: 20px;
+	height: 40px;
+	cursor: pointer;
+	z-index: 5;
+}
+/* ハンバーガーメニューが表示されるとき */
+#hamburger.show {
+	display: block;
+}
+
+
+/* メニュー外エリア（オーバーレイ） */
+#overlay {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	z-index: 3;
+}
+
+
+
+
+
+
+/** main
+******************************/
+
+#main_visual{
+	width: 100%;
+	height: calc(100vh - 17vh);
+	margin: 0;
+}
+#main_visual::before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/main_visual.png");
+	background-size: 77%;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+.main_title{
+	display: none;
+}
+
+/** スクロールボタン **/
+.scroll_down{
+	position:absolute;
+	top:50%;
+	right:14%;
+	font-size: 14px;
+	letter-spacing: .2em;
+	writing-mode: vertical-rl;
+	text-decoration: none;
+	animation: arrowmove 1s ease-in-out infinite;
+}
+
+/** スクロールボタン 先端 **/
+.scroll_down:before {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    width: 2px;
+    height: 20px;
+    background: var(--black);
+    transform: skewX(-31deg);
+}
+/** スクロールボタン 縦線 **/
+.scroll_down:after{
+	content:"";
+	position: absolute;
+	bottom: 50%;
+	right: 6px;
+	width: 2px;
+	height: 85px;
+    background: var(--black);
+}
+
+@keyframes arrowmove{
+   0%{bottom:1%;}
+   50%{bottom:5%;}
+   100%{bottom:1%;}
+}
+
+
+
+/** TOPに戻るボタン **/
+#page_top {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	right: 3rem;
+	bottom: 3rem;
+	font-family: "Kiwi Maru", serif;
+	text-align: center;
+	font-size: 2rem;
+	color: var(--blue);
+	transition: 0.3s;
+	z-index: 99;
+}
+/* マウスオーバー時 */
+#page_top:hover {
+	color: #000;
+}
+
+
+
+
+
+/** ABOUT **/
+#about{
+	text-align: center;
+	margin: 400px 0 0;
+}
+h2{
+	font-size: 2rem;
+	font-weight:bold;
+	margin: 8rem 0;
+	padding: 5rem 0 2rem;
+}
+h3{
+	font-family: "Zen Kurenaido", sans-serif;
+	font-size: 2rem;
+	margin: 4rem 0;
+}
+	h3 span{
+		font-size: 1.4rem;
+	}
+	
+#about p{
+	font-size: calc(2rem / 1.618);
+	padding: 0 0 1rem;
+	line-height: 1.6;
+}
+.about_container {
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto 5rem;
+}
+.about_text {
+	flex: 6;
+	text-align: left;
+}
+.about_image {
+	flex: 4;
+	top: 0;
+}
+.about_image img {
+	max-width: 100%;
+	height: auto;
+}
+.message_container{
+	width: 70%;
+	align-items: center;
+	margin: 7rem auto 0;
+}
+.purun {
+  animation: poyoyon 2.2s linear infinite;
+}
+
+@keyframes poyoyon{
+	0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	10%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+	15%  { transform: scale(0.9, 1.1) translate(0%, -4%); }
+	25%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+	30% { transform: scale(0.98, 1.02) translate(0%, -2%); }
+	35% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+
+/** WORKS **/
+#works{
+	position: relative;
+	text-align: center;
+	margin: 40px auto 0;
+}
+#works h2{
+	margin: 14rem auto -5rem;
+	padding: 0;
+}
+#works h3{
+	width: 70%;
+	text-align: left;
+	margin: 10rem auto 3rem;
+}
+.work_container {
+	width: 70%;
+	display: grid;
+	text-align: center;
+	align-items: center;
+	margin: 0 auto;
+}
+.work_container img{
+	width: 100%;
+}
+.web{
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5%;
+	margin-bottom: 2rem;
+	align-items: flex-start;
+	text-align: center;
+}
+.goods{
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5%;
+	margin-bottom: 2rem;
+}
+.banner{
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 2%;
+	margin-bottom: 2rem;
+}
+.poster{
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5%;
+}
+.movie{
+	width: 50%;
+	margin: 2rem auto;
+}
+.movie iframe{
+	width: 100%;
+	height: auto;
+    aspect-ratio: 16 / 9;		
+}
+.movie_p{
+	width: 70%;
+	font-size: 1rem;
+	text-align: center;
+	margin: 1rem auto;
+}
+
+/* クリックで拡大表示 */
+#zoomback {
+	display: none;
+	position: fixed; /* 画面全体に固定 */
+	top:0;
+	left: 0;
+	width:100vw;
+	height:100vh;
+	background-color:rgba(0,0,0,0.7);
+	justify-content:center;
+	align-items:center;
+	z-index: 10; /* 背景より上に表示 */
+}
+#zoomimg {
+	max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+/** CONTACT **/
+#contact{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	padding: 0 0 11rem;
+}
+#contact p{
+	font-size: calc(2rem / 1.618);
+	padding: 0 0 2rem;
+	line-height: 1.6; /* 数値で指定する場合 */
+}
+#contact::before{
+	content: '';
+	position: absolute;
+	display: block;
+	background-image: url("../img/nma.png");
+	background-repeat: no-repeat;
+	background-size: 22%;
+	background-position: bottom 10% left 14%;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	animation: poyopoyo 0.5s linear infinite;
+}
+
+@keyframes poyopoyo{
+	
+	
+  0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+  33%  { transform: scale(1.1, 0.9) translate(3%, 5%); }
+  50%  { transform: scale(0.9, 1.1) translate(-3%, -4%); }
+  83%  { transform: scale(1.1, 0.9) translate(3%, 5%); }
+  100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+
+
+
+
+/** footer
+******************************/
+footer{
+	width: 100%;
+	background: var(--black);
+	color: var(--white);
+	padding: 1rem 5px 0;
+}
+.footer_area{
+	display: grid;
+	grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;
+	gap: 1rem;
+	text-align: center;
+	align-items: center;
+	margin: 2rem 7rem 3rem 2rem;
+}
+
+/** footer 屋号 **/
+.footer_yago{
+	font-family: "Kiwi Maru", serif;
+	color: var(--white);
+	font-size: 1.5rem;
+	margin: 2% 0;
+	padding: 0;
+}
+.footer_yago span {
+	display: block;
+}
+
+
+
+
+
+/**footer コピーライト**/
+.copyright{
+	border-top: solid 0.1px;
+	border-width: 100%;
+	text-align: center;
+	font-size: 0.7rem;
+	margin: 10px auto 0;
+	padding: 10px;
+}
+
+
+
+
+
+
+
+/** スマホ
+****************************************/
+@media screen and (max-width: 600px) , print{
+
+.sp{
+	display: block;
+}	
+
+/** 全体
+******************************/
+	body{
+		max-width: 100%;
+	}
+/** header
+******************************/
+
+/** ヘッダー **/
+	header{
+		height: 0;
+	}
+	.title_area{
+		display: none;
+	}
+	.top_nav{
+		display: none;
+	}
+	
+/** ハンバーガーマーク **/
+.inner_line{
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 30px;
+	height: 4px;
+	background: var(--black);
+	transition: 0.3s;
+	z-index: 7;
+}
+#line1{
+	top: 0;
+}
+#line2{
+	top: 50%;
+	transform: translateY(-50%)
+}
+#line3{
+	bottom: 0;
+}
+
+/* ハンバーガー[ × ] */
+.line_1{
+	margin-top: 20%;
+	transform: rotate(-45deg);
+	background: var(--white);
+}
+.line_2{
+	opacity: 0;
+}
+.line_3{
+	margin-bottom: 20%;
+	transform: rotate(45deg);
+	background: var(--white);
+}
+
+/** ハンバーガーメニュー **/
+nav{
+	position: fixed;
+	top: 0;
+	right: -30%;
+	width: 30%;
+	height: 100vh;
+	background: var(--black);
+	color: var(--white);
+	transition: 0.5s;
+	z-index: 4;
+}
+nav ul{
+	padding-top: 100px;
+	text-align: center;
+	margin: 0 10%;
+}
+nav a{
+	display: block;
+	font-size: 33px;
+	color: var(--white);
+	margin: 15px;
+	padding: 10px;
+	transition: 0.3s;
+	line-height: 2;
+}
+.in{
+	transform: translateX(-100%); /* 要素幅の100%を左に移動 */
+}
+.nav_item{
+	margin: 1rem auto;
+	padding: 0;
+	font-size: 1rem;
+}
+.nav_item:hover:after{
+	width: 0;
+	}
+
+
+
+
+/** ハンバーガーマーク **/
+#hamburger {
+	display: block;
+	position: fixed;  /* スクロールしても画面上に固定 */
+	top: 20px;
+	right: 20px;
+	width: 40px;
+	height: 20px;
+	cursor: pointer;
+	z-index: 5;
+}
+
+/* メニュー外エリア（オーバーレイ） */
+#overlay {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0); /* 透明のオーバーレイ */
+	z-index: 3;  /* メニューより下に表示 */
+}
+
+
+
+
+
+
+/** main
+******************************/
+
+#main_visual{
+	height: 100vh;
+}
+#main_visual::before{
+	content: '';
+	background-size: 94%;
+	background-position: bottom 7% left;
+}
+
+.main_title{
+	display: block;
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	font-family: "Kiwi Maru", serif;
+	text-align: left;
+	color: var(--blue);
+	font-size: 1rem;
+	margin:auto;
+}
+.main_title span {
+	display: block;
+	padding:  1rem 0;
+}
+
+
+
+
+/** スクロールボタン **/
+.scroll_down{
+	position:absolute;
+	top:30%;
+	right:14%;
+	font-size: 14px;
+	letter-spacing: .2em;
+	writing-mode: vertical-rl;
+	text-decoration: none;
+	animation: arrowmove 1s ease-in-out infinite;
+}
+/** スクロールボタン 先端 **/
+.scroll_down:before {
+    content: "";
+    position: absolute;
+    bottom: 55%;
+    right: 0;
+    width: 2px;
+    height: 20px;
+    background: var(--black);
+    transform: skewX(-31deg);
+}
+/** スクロールボタン 縦線 **/
+.scroll_down:after{
+	content:"";
+	position: absolute;
+	bottom: 55%;
+	right: 6px;
+	width: 2px;
+	height: 85px;
+    background: var(--black);
+}
+
+@keyframes arrowmove{
+   0%{bottom:1%;}
+   50%{bottom:5%;}
+   100%{bottom:1%;}
+}
+
+
+
+/** TOPに戻るボタン **/
+#page_top {
+	position: fixed;
+	width: 80px;
+	height: 80px;
+	right: 2rem;
+	bottom: 3rem;
+	font-family: "Kiwi Maru", serif;
+	text-align: center;
+	font-size: 1.5rem;
+	color: var(--blue);
+	transition: 0.3s;
+}
+
+
+
+/** ABOUT **/
+#about{
+	text-align: center;
+	margin: 0.3rem 0 0;
+}
+h2{
+	font-size: 2rem;
+	font-weight:bold;
+	margin: 8rem 0 2rem;
+	padding: 5rem 0 0;
+}
+h3{
+	font-family: "Zen Kurenaido", sans-serif;
+	font-size: 1.4rem;
+	text-align: center;
+	margin: 0 0 2rem;
+}
+	h3 span{
+		font-size: 1rem;
+	}
+#about p{
+	font-size: 1rem;
+	padding: 0 0 1rem;
+	line-height: 1.6;
+}
+.about_container {
+	display: flex;
+	flex-direction: column-reverse;
+	width: 80%;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto 1rem;
+}
+.about_text {
+	text-align: left;
+}
+.about_image img {
+	max-width: 70%; 
+	height: auto;
+}
+.message_container{
+	width: 80%;
+	align-items: center;
+	margin: 5rem auto 0;
+}
+	
+
+
+
+
+/** WORKS **/
+#works{
+	margin: 0 auto;
+}
+#works h2{
+	margin: 8rem auto 0;
+}
+#works h3{
+	width: 88%;
+	text-align: left;
+	margin: 3rem auto 1.5rem;
+}
+.work_container {
+	width: 88%;
+	display: grid;
+	margin: 0 auto;
+}
+.work_container img{
+	width: 100%;
+}
+.web{
+	grid-template-columns: 1fr 1fr;
+	gap: 5%;
+	margin-bottom: 7rem;
+}
+.goods{
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5%;
+	margin-bottom: 4rem;
+}
+.banner{
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2%;
+	margin-bottom: 4rem;
+}
+.banner img{
+	margin-bottom: 5%;
+}
+.poster{
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5%;
+}
+.movie{
+	width: 80%;
+	margin: 2rem auto;
+}
+.movie iframe{
+	width: 100%;
+	height: auto;
+    aspect-ratio: 16 / 9;		
+}
+.movie_p{
+	width: 70%;
+	font-size: 1rem;
+	text-align: center;
+	margin: 1rem auto;
+}
+
+
+/* クリックで拡大表示 */
+#zoomback {
+	display: none;
+	position: fixed; /* 画面全体に固定 */
+	top:0;
+	left: 0;
+	width:100vw;
+	height:100vh;
+	background-color:rgba(0,0,0,0.7);
+	justify-content:center;
+	align-items:center;
+	z-index: 10; /* 背景より上に表示 */
+}
+#zoomimg {
+	max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+
+/** CONTACT **/
+#contact{
+	text-align: center;
+	margin: -2rem 0 0;
+	padding: 0 0 7rem;
+}
+#contact p{
+	text-align: right;
+	font-size: 1rem;
+	padding: 0.5rem 2rem 0.5rem 0;
+	margin: 0;
+}
+#contact::before{
+	content: '';
+	background-size: 40%;
+	background-position: bottom 18% left 10%;
+}
+
+
+
+
+
+
+
+/** footer
+******************************/
+footer{
+	width: 100%;
+	background: var(--black);
+	color: var(--white);
+	padding: 0.5rem 0 0;
+}
+.footer_area{
+	display: grid;
+	grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;
+	gap: 1rem;
+	text-align: center;
+	align-items: center;
+	font-size: 0.5rem;
+	margin: 0 5% 0 2%;
+}
+
+/** footer 屋号 **/
+.footer_yago{
+	font-family: "Kiwi Maru", serif;
+	color: var(--white);
+	font-size: 0.5rem;
+	margin: 2% 0;
+	padding: 0;
+}
+.footer_yago span {
+	display: block;
+	margin: 2% 0;
+}
+
+
+
+
+/**footer コピーライト**/
+.copyright{
+	border-top: solid 0.1px;
+	border-width: 100%;
+	text-align: center;
+	font-size: 0.4rem;
+	margin: 1% auto 0;
+	padding: 1%;
+}
+
+}		/** END スマホ**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
